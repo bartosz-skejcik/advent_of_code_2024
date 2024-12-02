@@ -38,7 +38,7 @@ func scanDir(ignoredFolders []string) ([]string, error) {
 }
 
 func displayFolders() []string {
-	ignoredFolders := []string{".git", ".idea"}
+	ignoredFolders := []string{".git", ".idea", "internal"}
 	// Assume scanDir scans the directory and filters out ignored folders.
 	folders, err := scanDir(ignoredFolders)
 	if err != nil {
@@ -87,9 +87,6 @@ func runDay(day int) {
 		fmt.Printf("No folder found for day %d\n", day)
 		return
 	}
-
-	// TODO: Implement actual day running logic
-	fmt.Printf("Running code for day %d in folder: %s\n", day, folder)
 
 	// Potential implementation could include:
 	err := os.Chdir(folder)
