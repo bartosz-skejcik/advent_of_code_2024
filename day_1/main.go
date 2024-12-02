@@ -70,21 +70,16 @@ func main() {
 	left_list = sortFromLowToHigh(left_list)
 	right_list = sortFromLowToHigh(right_list)
 
-	var differences []int
+	var sum int
 
 	for i, value := range left_list {
 		var right_element = right_list[i]
 
-		differences = append(differences, int(math.Abs(float64(value-right_element))))
+		sum += int(math.Abs(float64(value - right_element)))
 	}
 
-	var sum int
-	for _, value := range differences {
-		sum += value
-	}
+	fmt.Println("Sum of differences:", sum)
 
 	score := calcSimilarityScore(left_list, right_list)
 	fmt.Printf("Score is: %d\n", score)
-
-	fmt.Println("Sum of differences:", sum)
 }
